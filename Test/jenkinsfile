@@ -73,12 +73,9 @@ pipeline {
 
         success {
         	emailext(
-            	subject: "Jenkins Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            	body: """<p>Good news!</p>
-            	         <p>The Jenkins build <b>${env.JOB_NAME} #${env.BUILD_NUMBER}</b> succeeded.</p>
-            	         <p><a href="${env.BUILD_URL}">Click here to view the build</a></p>""",
-            	mimeType: 'text/html',
-            	to: 'davidlee991122@gmail.com'
+            	to: 'davidlee991122@gmail.com',
+            	subject: "✅ Jenkins Job 성공 알림: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            	body: "빌드가 성공적으로 완료되었습니다.\nJob: ${env.JOB_NAME}\nBuild: #${env.BUILD_NUMBER}\nURL: ${env.BUILD_URL}"
         	)
     	}
     }
