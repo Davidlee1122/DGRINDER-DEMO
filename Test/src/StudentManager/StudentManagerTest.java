@@ -41,4 +41,10 @@ class StudentManagerTest {
 			manager.removeStudent("홍길동");
 		});
 	}
+	
+	@Test
+	void testDuplicated() {
+		manager.addStudent("김현의");
+		assertFalse(manager.hasStudent("김현으"));
+	}
 }
