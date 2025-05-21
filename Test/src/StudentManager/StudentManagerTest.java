@@ -47,4 +47,9 @@ class StudentManagerTest {
 		manager.addStudent("김현의");
 		assertFalse(manager.hasStudent("김현으"));
 	}
+	
+	@Test
+	void testMajorThing() {
+		assertTrue(true);
+	}
 }
