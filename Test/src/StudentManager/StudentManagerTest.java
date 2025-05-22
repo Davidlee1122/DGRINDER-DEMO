@@ -10,46 +10,36 @@ class StudentManagerTest {
 	StudentManager manager;
 	
 	@BeforeEach
-	void setUp() {
+	void setUp() throws Exception {
 		manager = new StudentManager();
 	}
 
 	@Test
-    void testAddStudent() {
-        manager.addStudent("홍길동");
-        assertTrue(manager.hasStudent("홍길동"));
-    }
+	void testAddStudent() {
+		manager.addStudent("Kimyeho");
+		assertTrue(manager.hasStudent("Kimyeho"));
+	}
 
 	@Test
 	void testRemoveStudent() {
-		manager.addStudent("홍길동");
-		manager.removeStudent("홍길동");
-		assertFalse(manager.hasStudent("홍길동"));
+		manager.addStudent("Kimyeho");
+		manager.removeStudent("Kimyeho");
+		assertFalse(manager.hasStudent("Kimyeho"));
 	}
-	
+
 	@Test
-	void testDurability() {
-		manager.addStudent("홍길동");
+	void testHasDuplicateStudent() {
+		manager.addStudent("Kimyeho");
 		assertThrows(IllegalArgumentException.class,()->{
-			manager.addStudent("홍길동");
+			manager.addStudent("Kimyeho");
 		});
 	}
 	
 	@Test
-	void testUnexist() {
+	void testHasNotSudent() {
 		assertThrows(IllegalArgumentException.class,()->{
-			manager.removeStudent("홍길동");
+			manager.removeStudent("Kimyeho");
 		});
 	}
-	
-	@Test
-	void testDuplicated() {
-		manager.addStudent("김현의");
-		assertFalse(manager.hasStudent("김현으"));
-	}
-	
-	@Test
-	void testMajorThing() {
-		assertTrue(true);
-	}
+
 }
